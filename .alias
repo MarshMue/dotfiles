@@ -1,0 +1,3 @@
+alias sshb='ssh -X -C best-linux.cs.wisc.edu'
+alias tmux="tmux -2"
+alias katmux="killall tmux"
