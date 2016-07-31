@@ -9,13 +9,21 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-echo "Nuking .vim"
-rm -rf $HOME/.vim
-echo "Nuking .vimrc"
-rm $HOME/.vimrc
+if [ -L $HOME/.vim ]; then
+	echo "symlink exists for .vim"
+else
+	echo "Nuking .vim"
+	rm -rf $HOME/.vim
+	ln -s "$DIR" "$HOME"/.vim
+fi
 
-ln -s "$DIR" "$HOME/.vim"
-ln -s "$DIR"/.vimrc "$HOME/.vimrc"
+if [ -L $HOME/.vimrc ]; then
+	echo "symlink exists for .vimrc"
+else
+	echo "Nuking .vimrc"
+	rm $HOME/.vimrc
+	ln -s "$DIR"/.vimrc "$HOME/.vimrc"
+fi
 
 git submodule update --init --recursive
 vim +PluginInstall +qall

@@ -8,9 +8,13 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 FILES=".bashrc .alias .tmux.conf .bash_profile"
 for FILE in $FILES; do
-	echo "Nuking $FILE"
-	rm "$HOME/$FILE"
-    ln -s "$DIR/$FILE" "$HOME/$FILE"
+	if [ -L $HOME/$FILE ]; then
+		echo "file is already symlinked"
+	else
+		echo "Nuking $FILE"
+		rm "$HOME/$FILE"
+    	ln -s "$DIR/$FILE" "$HOME/$FILE"
+	fi
 done
 
 # Run vim setup

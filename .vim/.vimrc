@@ -60,6 +60,8 @@ set pastetoggle=<f5>
 
 set autowrite
 
+let g:python_host_prog = '/usr/bin/env/python2.7'  
+
 " set colorscheme
 colorscheme molokai
 
