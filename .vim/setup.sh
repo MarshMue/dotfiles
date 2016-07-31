@@ -9,9 +9,14 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+echo "Nuking .vim"
+rm -rf $HOME/.vim
+echo "Nuking .vimrc"
+rm $HOME/.vimrc
+
 ln -s "$DIR" "$HOME/.vim"
 ln -s "$DIR"/.vimrc "$HOME/.vimrc"
 
 git submodule update --init --recursive
-vim -c 'PluginInstall'
+vim +PluginInstall +qall
 python ~/.vim/bundle/YouCompleteMe/install.py --gocode-completer

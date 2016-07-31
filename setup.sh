@@ -8,6 +8,8 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 FILES=".bashrc .alias .tmux.conf .bash_profile"
 for FILE in $FILES; do
+	echo "Nuking $FILE"
+	rm "$HOME/$FILE"
     ln -s "$DIR/$FILE" "$HOME/$FILE"
 done
 
