@@ -6,7 +6,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 	[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-FILES=".bashrc .alias .tmux.conf"
+FILES=".bashrc .alias .tmux.conf .bash_profile"
 for FILE in $FILES; do
     ln -s "$DIR/$FILE" "$HOME/$FILE"
 done
