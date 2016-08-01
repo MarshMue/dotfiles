@@ -106,6 +106,9 @@ esac
 
 export CLICOLOR=1
 
+# export gopath
+GOPATH=$HOME/gopath
+export PATH=$PATH:$GOPATH/bin
 
 source ~/.alias
 
