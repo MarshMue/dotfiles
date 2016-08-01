@@ -2,3 +2,6 @@ alias tmux="tmux -2"
 alias katmux="killall tmux"
 alias beagle="ssh mnm@marshalldoes.science"
 alias sshb="ssh -XC -c blowfish-cbc,arcfour marshallm@best-linux.cs.wisc.edu"
+
+# ls
+alias la='ls -a'

@@ -65,6 +65,9 @@ let g:python_host_prog = '/usr/bin/env/python2.7'
 " set colorscheme
 colorscheme molokai
 
+syntax enable
+syntax on
+
 " go syntax highlighting 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
