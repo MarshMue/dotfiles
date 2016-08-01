@@ -110,5 +110,6 @@ export CLICOLOR=1
 export GOPATH=$HOME/gopath
 export PATH="$PATH:$GOPATH/bin"
 
+# get aliases
 source ~/.alias
 
