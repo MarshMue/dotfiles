@@ -96,6 +96,22 @@ export PS1=$(build_prompt)
 
 alias vi="vim"
 
+# KILL ALL
+function ka(){
+	cnt=$( p $1 | wc -l)
+
+	echo -e "\nSearching for '$1' -- Found" $cnt "Running Processes .. "
+	p $1
+
+	echo -e '\nTerminating' $cnt 'processes .. '
+	ps aux  |  grep -i $1 |  grep -v grep   | awk '{print $2}' | xargs sudo kill -9
+	echo -e "Done!\n"
+
+	echo "Running search again:"
+	p "$1"
+	echo -e "\n"
+}
+
 case "$TERM" in
 xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
