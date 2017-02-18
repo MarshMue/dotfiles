@@ -126,6 +126,10 @@ export CLICOLOR=1
 export GOPATH=$HOME/gopath
 export PATH="$PATH:$GOPATH/bin"
 
+# export haskell bin
+export HASKELLPATH=$HOME/Library/Haskell/bin
+export PATH="$PATH:$HASKELLPATH"
+
 # get aliases
 source ~/.alias
 
